@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureBank - Online Banking</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+</head>
+<body>
+    <!-- Login Page -->
+    <div id="loginPage" class="page active">
+        <div class="login-container">
+            <div class="login-card">
+                <div class="bank-logo">
+                    <div class="logo-animation">
+                        <i class="fas fa-university"></i>
+                        <div class="logo-particles">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                    <h1 data-key="bank_name">SecureBank</h1>
+                </div>
+                <form id="loginForm">
+                    <div class="input-group">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="username" placeholder="Username" required>
+                        <label data-key="username_label">Username</label>
+                        <div class="input-highlight"></div>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="password" placeholder="Password" required>
+                        <label data-key="password_label">Password</label>
+                        <div class="input-highlight"></div>
+                    </div>
+                    <button type="submit" class="login-btn" data-key="login_btn">
+                        <span class="btn-text" data-key="login">Login</span>
+                        <div class="btn-ripple"></div>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </form>
+                <div class="demo-credentials">
+                    <p data-key="demo_text">Demo: admin / password</p>
+                </div>
+            </div>
+            <div class="floating-shapes">
+                <div class="shape shape1"></div>
+                <div class="shape shape2"></div>
+                <div class="shape shape3"></div>
+                <div class="shape shape4"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dashboard Page -->
+    <div id="dashboardPage" class="page">
+        <!-- Header -->
+        <header class="dashboard-header">
+            <div class="header-left">
+                <div class="bank-logo-small">
+                    <i class="fas fa-university"></i>
+                    <span data-key="bank_name">SecureBank</span>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="language-selector">
+                    <select id="languageSelect">
+                        <option value="en">English</option>
+                        <option value="hi">हिंदी</option>
+                        <option value="kn">ಕನ್ನಡ</option>
+                    </select>
+                </div>
+                <div class="voice-control">
+                    <button id="voiceBtn" class="voice-btn">
+                        <i class="fas fa-microphone"></i>
+                    </button>
+                </div>
+                <div class="user-menu">
+                    <span data-key="welcome">Welcome, Admin</span>
+                    <button id="logoutBtn" class="logout-btn">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span data-key="logout">Logout</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <div class="container">
+                <!-- Balance Section -->
+                <div class="balance-section">
+                    <div class="balance-card">
+                        <div class="balance-bg-animation">
+                            <div class="balance-wave wave1"></div>
+                            <div class="balance-wave wave2"></div>
+                            <div class="balance-wave wave3"></div>
+                        </div>
+                        <div class="balance-header">
+                            <h2 data-key="account_balance">Account Balance</h2>
+                            <div class="balance-icon">
+                                <i class="fas fa-wallet"></i>
+                                <div class="icon-pulse"></div>
+                            </div>
+                        </div>
+                        <div class="balance-amount">
+                            <span class="currency">₹</span>
+                            <span id="balanceAmount" class="counter">50000.00</span>
+                        </div>
+                        <div class="balance-subtitle">
+                            <span data-key="available_balance">Available Balance</span>
+                        </div>
+                        <div class="balance-particles">
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payment Form -->
+                <div class="payment-section">
+                    <div class="section-card">
+                        <div class="section-header">
+                            <h3 data-key="make_payment">Make Payment</h3>
+                            <div class="header-icon">
+                                <i class="fas fa-paper-plane"></i>
+                                <div class="icon-orbit">
+                                    <div class="orbit-dot"></div>
+                                    <div class="orbit-dot"></div>
+                                    <div class="orbit-dot"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <form id="paymentForm" class="payment-form">
+                            <div class="form-row">
+                                <div class="input-group animated-input">
+                                    <label data-key="recipient_name">Recipient Name</label>
+                                    <input type="text" id="recipientName" required>
+                                    <div class="input-underline"></div>
+                                </div>
+                                <div class="input-group animated-input">
+                                    <label data-key="amount">Amount (₹)</label>
+                                    <input type="number" id="paymentAmount" min="1" step="0.01" required>
+                                    <div class="input-underline"></div>
+                                </div>
+                            </div>
+                            <div class="input-group animated-input">
+                                <label data-key="description">Description (Optional)</label>
+                                <input type="text" id="paymentDescription" placeholder="Payment description">
+                                <div class="input-underline"></div>
+                            </div>
+                            <button type="submit" class="payment-btn animated-btn">
+                                <div class="btn-bg"></div>
+                                <i class="fas fa-credit-card"></i>
+                                <span data-key="send_payment">Send Payment</span>
+                                <div class="btn-particles">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Transaction History -->
+                <div class="history-section">
+                    <div class="section-card">
+                        <div class="section-header">
+                            <h3 data-key="transaction_history">Transaction History</h3>
+                            <i class="fas fa-history"></i>
+                        </div>
+                        <div class="table-container">
+                            <table id="transactionTable" class="transaction-table">
+                                <thead>
+                                    <tr>
+                                        <th data-key="date">Date</th>
+                                        <th data-key="recipient_amount">Recipient/Amount</th>
+                                        <th data-key="description">Description</th>
+                                        <th data-key="type">Type</th>
+                                        <th data-key="status">Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="transactionBody">
+                                    <!-- Transactions will be populated by JavaScript -->
+                                </tbody>
+                            </table>
+                            <div class="loading-animation" id="tableLoading">
+                                <div class="loading-dots">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Voice Assistant Status -->
+        <div id="voiceStatus" class="voice-status">
+            <div class="voice-indicator">
+                <i class="fas fa-microphone-slash"></i>
+                <span data-key="voice_ready">Voice Assistant Ready</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification System -->
+    <div id="notification" class="notification">
+        <i class="fas fa-check-circle"></i>
+        <span id="notificationText"></span>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
